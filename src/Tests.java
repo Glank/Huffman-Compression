@@ -1,11 +1,3 @@
-import huffman.HList;
-import huffman.HNode;
-import huffman.HTree;
-import huffman.HTreeIOFactory;
-import huffman.HuffmanCompressor;
-import io.BitInputStream;
-import io.BitOutputStream;
-import io.ByteIOFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,7 +12,16 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.NavigableSet;
 
-import util.BinarySortedTree;
+import compression.huffman.HList;
+import compression.huffman.HNode;
+import compression.huffman.HTree;
+import compression.huffman.HTreeIOFactory;
+import compression.huffman.HuffmanCompressor;
+import compression.io.BitInputStream;
+import compression.io.BitOutputStream;
+import compression.io.ByteIOFactory;
+import compression.util.BinarySortedTree;
+
 
 //0010 0001 = !
 public class Tests {
