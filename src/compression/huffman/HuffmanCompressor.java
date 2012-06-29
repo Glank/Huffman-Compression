@@ -31,11 +31,11 @@ public class HuffmanCompressor {
 		System.out.println("Creating Tree...");
 		HTree<S> tree = new HTree<S>(list.getAll());
 		list = null;
-		System.out.println("Writing Tree...");
 		HTreeIOFactory<S> treeFactory = new HTreeIOFactory<S>(factory);
 		try{
-			System.out.println(dataLength);
+			System.out.println("Writing dataLength: " + dataLength);
 			dos.writeLong(dataLength);
+			System.out.println("Writing tree...");
 			treeFactory.write(tree, bos);
 			Map<S, boolean[]> writingMap = tree.compileWritingMap();
 			tree = null;
@@ -70,6 +70,7 @@ public class HuffmanCompressor {
 		LinkedList<S> ret = new LinkedList<S>();
 		try{
 			long dataLength = dis.readLong();
+			System.out.println("Read dataLength: " + dataLength);
 			System.out.println("Reading tree...");
 			tree = treeFactory.read(bis);
 			S s;
@@ -79,7 +80,6 @@ public class HuffmanCompressor {
 				s = tree.readFrom(bis);
 				ret.add(s);
 			}
-			System.out.println(dataLength);
 		}
 		catch(IOException ioe){
 			throw new RuntimeException("Decompression Error");

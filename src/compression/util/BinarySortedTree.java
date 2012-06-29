@@ -34,6 +34,8 @@ public class BinarySortedTree<T extends Comparable<T>> implements Iterable<T>{
 	}
 	
 	public T pollFirst(){
+		if(size==0)
+			throw new RuntimeException("Empty Tree");
 		T ret = first.load;
 		size--;
 		if(size==0){

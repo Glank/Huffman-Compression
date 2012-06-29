@@ -114,7 +114,10 @@ public class HTree<S>{
 	private void createBranch(){
 		//System.out.println("Creating a new branch...");
 		HNode<S> newNode = new HNode<S>(next, extraNodes.pollFirst());
-		next = extraNodes.pollFirst();
+		if(extraNodes.isEmpty())
+			next=null;
+		else
+			next = extraNodes.pollFirst();
 		if(newNode.count<root.count){
 			extraRoots.add(root);
 			root = newNode;
